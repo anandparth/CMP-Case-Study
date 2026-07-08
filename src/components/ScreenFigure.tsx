@@ -42,7 +42,7 @@ export default function ScreenFigure({
         </span>
       </GlowFrame>
       <p className="font-mono-tag mt-3 text-[12px] leading-relaxed text-muted">{caption}</p>
-      {open && <Lightbox src={src} alt={alt} onClose={() => setOpen(false)} />}
+      {open && <Lightbox src={src} alt={alt} width={width} onClose={() => setOpen(false)} />}
     </Reveal>
   )
 }

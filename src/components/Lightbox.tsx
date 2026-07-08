@@ -5,10 +5,12 @@ import { X, MagnifyingGlassPlus, MagnifyingGlassMinus } from '@phosphor-icons/re
 export default function Lightbox({
   src,
   alt,
+  width,
   onClose,
 }: {
   src: string
   alt: string
+  width?: number
   onClose: () => void
 }) {
   const [zoomed, setZoomed] = useState(false)
@@ -25,6 +27,11 @@ export default function Lightbox({
       document.body.style.overflow = prevOverflow
     }
   }, [onClose])
+
+  // Cap the zoomed size to the image's own native resolution (never upscale,
+  // which is what made things look blurry) and to a moderate ceiling (so
+  // zooming in doesn't overshoot into a page-wide, disorienting size).
+  const zoomCap = width ? Math.min(width, 1280) : 1280
 
   return createPortal(
     <div
@@ -43,8 +50,9 @@ export default function Lightbox({
             setZoomed((z) => !z)
           }}
           className={`rounded-lg shadow-2xl transition-[max-width] duration-200 ${
-            zoomed ? 'max-w-none cursor-zoom-out' : 'max-w-[92vw] cursor-zoom-in sm:max-w-[85vw]'
+            zoomed ? 'cursor-zoom-out' : 'max-w-[92vw] cursor-zoom-in sm:max-w-[80vw]'
           }`}
+          style={zoomed ? { maxWidth: `${zoomCap}px`, width: '100%' } : undefined}
         />
       </div>
       <button

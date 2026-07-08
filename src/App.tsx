@@ -1,6 +1,7 @@
 import { MotionConfig } from 'framer-motion'
 import MetaBar from './components/MetaBar'
 import Hero from './components/Hero'
+import DashboardShowcase from './components/DashboardShowcase'
 import Context from './components/Context'
 import ProblemGrid from './components/ProblemGrid'
 import ResearchLog from './components/ResearchLog'
@@ -15,6 +16,7 @@ function App() {
       <div className="min-h-screen bg-paper">
         <MetaBar />
         <Hero />
+        <DashboardShowcase />
         <Context />
         <ProblemGrid />
         <ResearchLog />
