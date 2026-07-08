@@ -2,6 +2,8 @@ import { CheckCircle } from '@phosphor-icons/react'
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import ScreenFigure from './ScreenFigure'
+import BeforeAfterToggle from './BeforeAfterToggle'
+import FlowDiagram from './FlowDiagram'
 
 const TRACKING_STATES = [
   'Contacted',
@@ -31,7 +33,7 @@ export default function DesignDecisions() {
             width={2200}
             height={980}
             alt="Grid of candidate card states: Reco Locked, Reco Unlocked, Database Locked, Database Unlocked, Removed, Hired, Requirements Met, Tracking Options, With No Requirements Matching, Selection Checkbox"
-            caption="The card state matrix: recommendation versus database source, locked versus unlocked versus previously unlocked, plus edge states like Removed, Hired, and no requirements matching."
+            caption="The card state matrix: recommendation versus database source, locked versus unlocked versus previously unlocked, plus edge states like Removed, Hired, and no requirements matching. Click to view full size."
           />
           <Reveal delay={0.1}>
             <div className="rounded-xl border border-line bg-surface p-6">
@@ -63,30 +65,16 @@ export default function DesignDecisions() {
         </div>
       </section>
 
-      {/* Bulk actions */}
+      {/* Bulk actions, interactive toggle */}
       <section className="border-t border-line bg-surface/60">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <SectionHeading
             title="Bulk actions, brought inline"
-            lede="The shipped list keeps every candidate action reachable without leaving the CMP. A Bulk actions control lives in the header, next to the tab counts and the unlock credit balance."
+            lede="The shipped list keeps every candidate action reachable without leaving the CMP. Switch the view below to compare it against an earlier exploration."
           />
-          <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
-            <ScreenFigure
-              src="./screens/01-cmp-main.png"
-              width={1280}
-              height={690}
-              alt="CMP candidate list with New/Viewed/Hired/Removed tabs, filters sidebar, match score badges, and a Bulk actions control in the header"
-              caption="The shipped list: tabs for New, Viewed, Hired, and Removed, filters, match score badges, and Bulk actions in the header. No context switch required."
-            />
-            <ScreenFigure
-              src="./screens/02-traditional-approach-1.png"
-              width={1280}
-              height={690}
-              alt="Checkbox multi-select pattern with a floating bulk-unlock action bar and a selection counter capped at 200 candidates"
-              caption="Traditional approach: the checkbox multi-select exploration, with a floating action bar and a hard cap of 200 selected candidates per bulk unlock."
-              delay={0.1}
-            />
-          </div>
+          <Reveal delay={0.1} className="mt-14">
+            <BeforeAfterToggle />
+          </Reveal>
         </div>
       </section>
 
@@ -116,13 +104,13 @@ export default function DesignDecisions() {
             title="One system, three job tiers, one small screen"
             lede="Basic, Premium, and Premium+Boosted listings now share the same card, filter, and action components instead of three parallel builds. The same system holds up on mobile."
           />
-          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-[2fr_1fr] md:grid-rows-[auto_auto]">
+          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-[1.3fr_1fr] md:grid-rows-[auto_auto]">
             <ScreenFigure
-              src="./screens/07-components.png"
-              width={2000}
-              height={1927}
-              alt="Component library sheet showing the full set of reusable CMP components: cards, filters, tables, buttons, tags, toasts"
-              caption="The component library that Basic, Premium, and Premium+Boosted now draw from."
+              src="./screens/crop-comp-status.png"
+              width={830}
+              height={150}
+              alt="Status and tracking dropdown menus reused across the CMP: Contacted, Hired, Invite for interview"
+              caption="Status dropdowns, one shared pattern for every tracking state on a card."
             />
             <div className="md:row-span-2">
               <ScreenFigure
@@ -133,39 +121,38 @@ export default function DesignDecisions() {
                 caption="The same card language, recomposed for mobile."
               />
             </div>
-            <Reveal delay={0.15}>
-              <div className="flex h-full flex-col justify-center rounded-xl border border-accent/25 bg-accent-soft p-6">
-                <p className="font-display text-[40px] font-semibold leading-none text-accent">
-                  42
-                </p>
-                <p className="mt-2 text-[14px] leading-relaxed text-ink-soft">
-                  reusable components, shared across every job tier, instead of three separate
-                  implementations to maintain.
-                </p>
-              </div>
-            </Reveal>
+            <ScreenFigure
+              src="./screens/crop-comp-filters.png"
+              width={460}
+              height={740}
+              alt="Four variants of the candidate filters sidebar, showing sort, source, salary, skill, and document filter groups"
+              caption="Four filter sidebar variants sharing one component set, from a lightweight sort panel to the full requirements filter."
+              delay={0.08}
+            />
           </div>
+          <Reveal delay={0.18} className="mt-5">
+            <div className="rounded-xl border border-accent/25 bg-accent-soft px-6 py-5 sm:flex sm:items-center sm:gap-5">
+              <p className="font-display shrink-0 text-[40px] font-semibold leading-none text-accent">
+                42
+              </p>
+              <p className="mt-2 text-[14px] leading-relaxed text-ink-soft sm:mt-0">
+                reusable components, shared across every job tier, instead of three separate
+                implementations to maintain.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Flow overview */}
+      {/* Flow, interactive diagram */}
       <section>
         <div className="mx-auto max-w-6xl px-6 py-24">
           <SectionHeading
             title="It's one screen, but a lot of paths through it"
-            lede="This is the flow map from the working file. Not meant to be read at this size, but it's the honest shape of the problem: dozens of states and edge cases behind what looks like a simple list."
+            lede="The working file maps dozens of states and edge cases behind what looks like a simple list. Tap a stage below to see what happens there."
           />
           <Reveal delay={0.1} className="mt-14">
-            <div className="overflow-x-auto rounded-xl border border-line bg-surface p-3">
-              <img
-                src="./screens/08-flow-overview.png"
-                width={1946}
-                height={2400}
-                alt="Overview of the full CMP flow map showing dozens of connected screen states"
-                className="min-w-[900px] rounded-lg"
-                loading="lazy"
-              />
-            </div>
+            <FlowDiagram />
           </Reveal>
         </div>
       </section>

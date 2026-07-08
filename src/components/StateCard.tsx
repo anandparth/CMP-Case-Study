@@ -100,19 +100,29 @@ export default function StateCard({ triggerRef }: { triggerRef: RefObject<HTMLEl
         {s.badge}
       </div>
 
-      <div className="mt-5 flex gap-2">
+      <div className="mt-4 flex gap-2">
         {ORDER.map((k, i) => (
-          <div key={k} aria-hidden className="h-1 flex-1 overflow-hidden rounded-full bg-line">
-            <span
-              className="block h-full rounded-full transition-all duration-200"
-              style={{
-                width: i <= index ? '100%' : '0%',
-                background: 'var(--color-accent)',
-              }}
-            />
-          </div>
+          <button
+            key={k}
+            type="button"
+            onClick={() => setIndex(i)}
+            aria-label={`Show ${STATES[k].label} state`}
+            aria-pressed={index === i}
+            className="flex h-11 flex-1 items-center"
+          >
+            <span className="block h-1 w-full overflow-hidden rounded-full bg-line">
+              <span
+                className="block h-full rounded-full transition-all duration-200"
+                style={{
+                  width: i <= index ? '100%' : '0%',
+                  background: 'var(--color-accent)',
+                }}
+              />
+            </span>
+          </button>
         ))}
       </div>
+      <p className="font-mono-tag mt-1 text-center text-[10px] text-muted">tap a state to jump</p>
     </div>
   )
 }

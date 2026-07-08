@@ -1,12 +1,14 @@
-import { useRef, type ReactNode, type MouseEvent } from 'react'
+import { useRef, type ReactNode, type MouseEvent, type ButtonHTMLAttributes, type HTMLAttributes } from 'react'
 
-interface GlowFrameProps {
+type GlowFrameProps = {
   children: ReactNode
   className?: string
-}
+  as?: 'div' | 'button'
+} & ButtonHTMLAttributes<HTMLButtonElement> &
+  HTMLAttributes<HTMLDivElement>
 
-export default function GlowFrame({ children, className = '' }: GlowFrameProps) {
-  const ref = useRef<HTMLDivElement>(null)
+export default function GlowFrame({ children, className = '', as = 'div', ...rest }: GlowFrameProps) {
+  const ref = useRef<HTMLDivElement & HTMLButtonElement>(null)
 
   function handleMove(e: MouseEvent<HTMLDivElement>) {
     const el = ref.current
@@ -16,11 +18,14 @@ export default function GlowFrame({ children, className = '' }: GlowFrameProps) 
     el.style.setProperty('--my', `${e.clientY - rect.top}px`)
   }
 
+  const Tag = as as 'div'
+
   return (
-    <div
+    <Tag
       ref={ref}
       onMouseMove={handleMove}
       className={`glow-frame group relative overflow-hidden rounded-xl border border-line bg-surface shadow-[0_1px_2px_rgba(28,26,22,0.04)] transition-transform duration-300 ease-out hover:-translate-y-1 ${className}`}
+      {...rest}
     >
       <div
         className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -36,6 +41,6 @@ export default function GlowFrame({ children, className = '' }: GlowFrameProps) 
         }}
       />
       <div className="relative">{children}</div>
-    </div>
+    </Tag>
   )
 }

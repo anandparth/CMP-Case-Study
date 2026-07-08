@@ -13,6 +13,7 @@
   --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
   --font-body: 'Poppins', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-hand: 'Caveat', cursive;
 }
 
 :root {
@@ -42,13 +43,25 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-paper);
+  background-color: var(--color-paper);
+  background-image: radial-gradient(var(--color-line) 1.3px, transparent 1.4px);
+  background-size: 26px 26px;
+  background-position: -13px -13px;
   color: var(--color-ink-soft);
   font-family: var(--font-body);
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+.sticker {
+  border: 1.6px solid var(--color-ink);
+  box-shadow: 2px 2px 0 rgba(28, 26, 22, 0.9);
 }
 
 ::selection {
