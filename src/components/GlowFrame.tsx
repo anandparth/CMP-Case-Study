@@ -20,19 +20,19 @@ export default function GlowFrame({ children, className = '' }: GlowFrameProps) 
     <div
       ref={ref}
       onMouseMove={handleMove}
-      className={`glow-frame group relative overflow-hidden rounded-xl border border-line bg-ink-2 transition-transform duration-300 ease-out hover:-translate-y-1 ${className}`}
+      className={`glow-frame group relative overflow-hidden rounded-xl border border-line bg-surface shadow-[0_1px_2px_rgba(28,26,22,0.04)] transition-transform duration-300 ease-out hover:-translate-y-1 ${className}`}
     >
       <div
         className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background:
-            'radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(232,163,61,0.14), transparent 70%)',
+            'radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(163,76,14,0.10), transparent 70%)',
         }}
       />
       <div
         className="pointer-events-none absolute inset-0 z-10 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
-          boxShadow: 'inset 0 0 0 1px rgba(232,163,61,0.35)',
+          boxShadow: 'inset 0 0 0 1px rgba(163,76,14,0.3)',
         }}
       />
       <div className="relative">{children}</div>

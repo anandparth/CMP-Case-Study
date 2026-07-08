@@ -1,25 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0c111d;
-  --color-ink-2: #131a2a;
-  --color-ink-3: #1a2338;
-  --color-paper: #f3efe4;
-  --color-line: #262f45;
-  --color-line-soft: #1c2439;
-  --color-text: #b7bfd4;
-  --color-text-dim: #7c869e;
-  --color-heading: #f5f7fb;
-  --color-gold: #e8a33d;
-  --color-gold-dim: #8a672c;
-  --color-green: #3ddc84;
-  --color-green-dim: #245c3f;
-  --color-clay: #e2664b;
-  --color-clay-dim: #6e3227;
+  --color-paper: #f6f4ee;
+  --color-surface: #ffffff;
+  --color-ink: #1c1a16;
+  --color-ink-soft: #4a453c;
+  --color-muted: #6b6558;
+  --color-line: #e4dfd1;
+  --color-accent: #a34c0e;
+  --color-accent-soft: #f2e4d8;
 
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: 'Poppins', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: light;
 }
 
 * {
@@ -45,27 +42,29 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-ink);
-  color: var(--color-text);
+  background: var(--color-paper);
+  color: var(--color-ink-soft);
   font-family: var(--font-body);
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: var(--color-gold);
-  color: var(--color-ink);
+  background: var(--color-accent);
+  color: var(--color-paper);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-gold);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  color: var(--color-heading);
+  color: var(--color-ink);
+  letter-spacing: -0.02em;
   margin: 0;
 }
 

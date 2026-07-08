@@ -28,7 +28,7 @@ export default function ScreenFigure({
           loading="lazy"
         />
       </GlowFrame>
-      <p className="font-mono-tag mt-3 text-[12px] leading-relaxed text-text-dim">{caption}</p>
+      <p className="font-mono-tag mt-3 text-[12px] leading-relaxed text-muted">{caption}</p>
     </Reveal>
   )
 }

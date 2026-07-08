@@ -12,7 +12,7 @@ import Footer from './components/Footer'
 function App() {
   return (
     <MotionConfig reducedMotion="user">
-      <div className="min-h-screen bg-ink">
+      <div className="min-h-screen bg-paper">
         <MetaBar />
         <Hero />
         <Context />
