@@ -9,10 +9,10 @@ const CHIPS: { label: string; value: string }[] = [
 export default function MetaBar() {
   return (
     <div className="sticky top-0 z-50 border-b border-line bg-ink/85 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6">
         <a
           href="https://parthanand.in"
-          className="font-mono-tag flex items-center gap-2 text-xs text-text-dim transition-colors hover:text-heading"
+          className="font-mono-tag inline-flex min-h-11 items-center gap-2 text-xs text-text-dim transition-colors hover:text-heading"
         >
           <span aria-hidden>←</span> parthanand.in
         </a>

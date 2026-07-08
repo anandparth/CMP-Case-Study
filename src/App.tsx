@@ -1,3 +1,4 @@
+import { MotionConfig } from 'framer-motion'
 import MetaBar from './components/MetaBar'
 import Hero from './components/Hero'
 import Context from './components/Context'
@@ -10,17 +11,19 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="min-h-screen bg-ink">
-      <MetaBar />
-      <Hero />
-      <Context />
-      <ProblemGrid />
-      <ResearchLog />
-      <DesignDecisions />
-      <Outcomes />
-      <Reflection />
-      <Footer />
-    </div>
+    <MotionConfig reducedMotion="user">
+      <div className="min-h-screen bg-ink">
+        <MetaBar />
+        <Hero />
+        <Context />
+        <ProblemGrid />
+        <ResearchLog />
+        <DesignDecisions />
+        <Outcomes />
+        <Reflection />
+        <Footer />
+      </div>
+    </MotionConfig>
   )
 }
 

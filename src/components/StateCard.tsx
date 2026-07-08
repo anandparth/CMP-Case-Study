@@ -99,21 +99,23 @@ export default function StateCard() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="mt-5 flex gap-2">
+      <div className="mt-2 flex gap-2">
         {ORDER.map((k, i) => (
           <button
             key={k}
             aria-label={`Show ${STATES[k].label} state`}
             onClick={() => setIndex(i)}
-            className="h-1 flex-1 overflow-hidden rounded-full bg-line-soft"
+            className="flex h-11 flex-1 items-center"
           >
-            <span
-              className="block h-full rounded-full transition-all duration-300"
-              style={{
-                width: i === index ? '100%' : '0%',
-                background: 'var(--color-gold)',
-              }}
-            />
+            <span className="block h-1 w-full overflow-hidden rounded-full bg-line-soft">
+              <span
+                className="block h-full rounded-full transition-all duration-300"
+                style={{
+                  width: i === index ? '100%' : '0%',
+                  background: 'var(--color-gold)',
+                }}
+              />
+            </span>
           </button>
         ))}
       </div>

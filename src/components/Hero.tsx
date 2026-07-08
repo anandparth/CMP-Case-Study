@@ -35,13 +35,13 @@ export default function Hero() {
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a
               href="#problem"
-              className="rounded-lg bg-gold px-5 py-2.5 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5"
+              className="inline-flex min-h-11 items-center rounded-lg bg-gold px-5 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5"
             >
               Read the case study
             </a>
             <a
               href="#showcase"
-              className="font-mono-tag rounded-lg border border-line px-5 py-2.5 text-sm text-text transition-colors hover:border-gold/40 hover:text-heading"
+              className="font-mono-tag inline-flex min-h-11 items-center rounded-lg border border-line px-5 text-sm text-text transition-colors hover:border-gold/40 hover:text-heading"
             >
               Jump to the screens
             </a>

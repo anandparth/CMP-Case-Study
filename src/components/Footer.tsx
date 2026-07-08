@@ -10,13 +10,13 @@ export default function Footer() {
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
             <a
               href="mailto:parthanand1705@gmail.com"
-              className="rounded-lg bg-gold px-5 py-2.5 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5"
+              className="inline-flex min-h-11 items-center rounded-lg bg-gold px-5 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5"
             >
               parthanand1705@gmail.com
             </a>
             <a
               href="https://parthanand.in"
-              className="font-mono-tag rounded-lg border border-line px-5 py-2.5 text-sm text-text transition-colors hover:border-gold/40 hover:text-heading"
+              className="font-mono-tag inline-flex min-h-11 items-center rounded-lg border border-line px-5 text-sm text-text transition-colors hover:border-gold/40 hover:text-heading"
             >
               parthanand.in
             </a>

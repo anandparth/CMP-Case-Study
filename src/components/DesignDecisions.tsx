@@ -28,6 +28,8 @@ export default function DesignDecisions() {
         <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-start">
           <ScreenFigure
             src="./screens/09-candidate-cards.png"
+            width={2200}
+            height={980}
             alt="Grid of candidate card states: Reco Locked, Reco Unlocked, Database Locked, Database Unlocked, Removed, Hired, Requirements Met, Tracking Options, With No Requirements Matching, Selection Checkbox"
             caption="Fig. 1 — the card state matrix: recommendation vs. database source, locked vs. unlocked vs. previously-unlocked, plus edge states like Removed, Hired, and 'no requirements matching'."
           />
@@ -72,11 +74,15 @@ export default function DesignDecisions() {
           <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
             <ScreenFigure
               src="./screens/01-cmp-main.png"
+              width={1280}
+              height={690}
               alt="CMP candidate list with New/Viewed/Hired/Removed tabs, filters sidebar, match score badges, and a Bulk actions control in the header"
               caption="Fig. 2 — the shipped list: tabs (New / Viewed / Hired / Removed), filters, match-score badges, and Bulk actions in the header — no context switch required."
             />
             <ScreenFigure
               src="./screens/02-traditional-approach-1.png"
+              width={1280}
+              height={690}
               alt="Checkbox multi-select pattern with a floating bulk-unlock action bar and a selection counter capped at 200 candidates"
               caption="Fig. 3 — 'Traditional Approach': the checkbox multi-select exploration, with a floating action bar and a hard cap of 200 selected candidates per bulk unlock."
               delay={0.1}
@@ -96,6 +102,8 @@ export default function DesignDecisions() {
           <div className="mt-14 flex justify-center">
             <ScreenFigure
               src="./screens/05-screening-cmp.png"
+              width={1280}
+              height={690}
               alt="Candidate card in the Viewed tab showing pre-screening answers inline: has cold calling experience, CRM experience, with a View Answers link"
               caption="Fig. 4 — pre-screening answers ('Has cold calling experience', 'CRM experience') rendered inline on the card, not behind a click."
             />
@@ -115,11 +123,15 @@ export default function DesignDecisions() {
           <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-[1.4fr_1fr]">
             <ScreenFigure
               src="./screens/07-components.png"
+              width={2000}
+              height={1927}
               alt="Component library sheet showing the full set of reusable CMP components: cards, filters, tables, buttons, tags, toasts"
               caption="Fig. 5 — the 42-component library that Basic, Premium, and Premium+Boosted now draw from instead of maintaining separate builds."
             />
             <ScreenFigure
               src="./screens/04-mobile.png"
+              width={360}
+              height={800}
               alt="Mobile responsive version of the CMP showing the same candidate cards, match score, and Call/WhatsApp actions"
               caption="Fig. 6 — the same card language, recomposed for mobile: match score, requirements, Call and WhatsApp actions intact."
               delay={0.1}
@@ -140,6 +152,8 @@ export default function DesignDecisions() {
             <div className="overflow-x-auto rounded-xl border border-line bg-ink-2 p-3">
               <img
                 src="./screens/08-flow-overview.png"
+                width={1946}
+                height={2400}
                 alt="Overview of the full CMP flow map showing dozens of connected screen states"
                 className="min-w-[900px] rounded-lg"
                 loading="lazy"
