@@ -18,5 +18,32 @@
   </head>
   <body>
     <div id="root"></div>
-  </body>
+  
+<!-- back to portfolio (parthanand.in) -->
+<style id="back-to-work-css">
+  #back-to-work{position:fixed;bottom:16px;left:16px;z-index:99999;display:inline-flex;align-items:center;gap:8px;
+    padding:9px 18px;background:#FBFAF4;color:#222019;border:2px solid #222019;
+    border-radius:14px 4px 16px 5px/5px 16px 4px 14px;box-shadow:3px 4px 0 #222019;
+    font:600 15px/1 "Bricolage Grotesque","Spline Sans",system-ui,sans-serif;text-decoration:none;
+    transition:transform .12s ease, box-shadow .12s ease;}
+  #back-to-work:hover{transform:translate(-1px,-1px);box-shadow:4px 5px 0 #222019;}
+  #back-to-work:active{transform:translate(3px,4px);box-shadow:0 0 0 #222019;}
+  @media (prefers-color-scheme: dark){
+    #back-to-work{background:#26241e;color:#FBFAF4;border-color:#FBFAF4;box-shadow:3px 4px 0 rgba(251,250,244,.35);}
+    #back-to-work:hover{box-shadow:4px 5px 0 rgba(251,250,244,.35);}
+  }
+  @media print{#back-to-work{display:none}}
+</style>
+<a id="back-to-work" href="https://parthanand.in/work" aria-label="Back to Parth Anand's work page">&larr; back to work</a>
+<script>
+  document.getElementById('back-to-work').addEventListener('click', function (e) {
+    var ref = document.referrer || '';
+    if (ref.indexOf('parthanand.in') !== -1 || ref.indexOf('localhost') !== -1) {
+      e.preventDefault();
+      history.back();
+    }
+  });
+</script>
+
+</body>
 </html>
