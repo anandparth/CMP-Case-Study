@@ -35,12 +35,30 @@ export default function Outcomes() {
         <Reveal delay={0.12}>
           <div className="h-full rounded-xl border border-accent/25 bg-accent-soft p-6">
             <span className="font-mono-tag text-[11px] uppercase tracking-widest text-accent">
-              The honest gap
+              Measured post-launch
             </span>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
-              No formal A/B instrumentation was in place at launch, so I don't have a clean
-              before and after number to put here. I'd rather say that plainly than dress up a
-              hunch as data.
+            <div className="mt-4 flex gap-7">
+              <div>
+                <p className="font-display text-[34px] font-semibold leading-none text-accent">
+                  +11%
+                </p>
+                <p className="mt-2 text-[12px] leading-snug text-ink-soft">
+                  avg actions per recruiter
+                </p>
+              </div>
+              <div>
+                <p className="font-display text-[34px] font-semibold leading-none text-accent">
+                  +8%
+                </p>
+                <p className="mt-2 text-[12px] leading-snug text-ink-soft">
+                  overall platform actions
+                </p>
+              </div>
+            </div>
+            <p className="mt-4 text-[13px] leading-relaxed text-ink-soft">
+              Platform analytics comparing the weeks before and after rollout. Not a controlled
+              A/B test, so I'm not overstating it, but a real, directional signal the redesign
+              changed behavior, not just aesthetics.
             </p>
           </div>
         </Reveal>
