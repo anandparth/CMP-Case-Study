@@ -8,22 +8,23 @@ export default function Hero() {
 
   return (
     <section ref={heroRef} className="relative overflow-hidden border-b border-line">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.6]"
-        style={{
-          backgroundImage:
-            'linear-gradient(to right, var(--color-line) 1px, transparent 1px), linear-gradient(to bottom, var(--color-line) 1px, transparent 1px)',
-          backgroundSize: '56px 56px',
-          maskImage: 'radial-gradient(ellipse 70% 55% at 50% 0%, black 30%, transparent 100%)',
-        }}
-      />
+      {/* the dotted paper is the system's texture — a graph-paper grid fights it */}
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-14 px-6 pt-20 pb-24 lg:grid-cols-[1.15fr_0.85fr] lg:pt-24">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="font-mono-tag inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-[11px] uppercase tracking-widest text-muted">
+          <span className="font-hand inline-flex items-center gap-2 text-[20px] leading-none text-muted">
+            <svg aria-hidden="true" width="26" height="8" viewBox="0 0 26 8" className="shrink-0">
+              <path
+                d="M1 5 q6 -4 12 0 t12 0"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+            </svg>
             Candidate Management Page
           </span>
           <h1 className="mt-6 text-[38px] leading-[1.08] font-semibold sm:text-[46px] lg:text-[52px]">
@@ -38,14 +39,14 @@ export default function Hero() {
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a
               href="#problem"
-              className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-ink px-5 text-sm font-medium text-paper transition-transform hover:-translate-y-0.5"
+              className="sketch-pill inline-flex min-h-11 items-center gap-2 bg-ink px-5 text-sm font-medium text-paper"
             >
               Read the case study
               <ArrowRight size={16} weight="bold" />
             </a>
             <a
               href="#showcase"
-              className="font-mono-tag inline-flex min-h-11 items-center rounded-lg border border-line bg-surface px-5 text-sm text-ink-soft transition-colors hover:border-accent/40 hover:text-ink"
+              className="sketch-pill font-mono-tag inline-flex min-h-11 items-center bg-surface px-5 text-sm text-ink-soft hover:bg-accent-soft"
             >
               Jump to the screens
             </a>

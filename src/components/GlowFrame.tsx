@@ -1,46 +1,36 @@
-import { useRef, type ReactNode, type MouseEvent, type ButtonHTMLAttributes, type HTMLAttributes } from 'react'
+import type { ReactNode, ButtonHTMLAttributes, HTMLAttributes } from 'react'
 
 type GlowFrameProps = {
   children: ReactNode
   className?: string
   as?: 'div' | 'button'
+  /** show the strip of masking tape at the top edge */
+  tape?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement> &
   HTMLAttributes<HTMLDivElement>
 
-export default function GlowFrame({ children, className = '', as = 'div', ...rest }: GlowFrameProps) {
-  const ref = useRef<HTMLDivElement & HTMLButtonElement>(null)
-
-  function handleMove(e: MouseEvent<HTMLDivElement>) {
-    const el = ref.current
-    if (!el) return
-    const rect = el.getBoundingClientRect()
-    el.style.setProperty('--mx', `${e.clientX - rect.left}px`)
-    el.style.setProperty('--my', `${e.clientY - rect.top}px`)
-  }
-
+/**
+ * The frame every screenshot and diagram sits in: 2px ink outline, hard
+ * offset shadow, optional masking tape — the same object as the figures in
+ * the HMLC / Okto / Job Hai studies, so CMP reads as their sibling.
+ *
+ * Name kept as GlowFrame so the existing call sites don't churn.
+ */
+export default function GlowFrame({
+  children,
+  className = '',
+  as = 'div',
+  tape = true,
+  ...rest
+}: GlowFrameProps) {
   const Tag = as as 'div'
 
   return (
     <Tag
-      ref={ref}
-      onMouseMove={handleMove}
-      className={`glow-frame group relative overflow-hidden rounded-xl border border-line bg-surface shadow-[0_1px_2px_rgba(28,26,22,0.04)] transition-transform duration-300 ease-out hover:-translate-y-1 ${className}`}
+      className={`sketch-frame ${tape ? 'sketch-frame--tape' : ''} group relative p-2.5 sm:p-3 ${className}`}
       {...rest}
     >
-      <div
-        className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background:
-            'radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgba(163,76,14,0.10), transparent 70%)',
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0 z-10 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          boxShadow: 'inset 0 0 0 1px rgba(163,76,14,0.3)',
-        }}
-      />
-      <div className="relative">{children}</div>
+      <div className="relative overflow-hidden rounded-[7px]">{children}</div>
     </Tag>
   )
 }

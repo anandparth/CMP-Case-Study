@@ -1,4 +1,5 @@
 import { MotionConfig } from 'framer-motion'
+import SketchDefs from './components/SketchDefs'
 import MetaBar from './components/MetaBar'
 import Hero from './components/Hero'
 import DashboardShowcase from './components/DashboardShowcase'
@@ -14,7 +15,9 @@ import Footer from './components/Footer'
 function App() {
   return (
     <MotionConfig reducedMotion="user">
-      <div className="min-h-screen bg-paper">
+      {/* no bg here: body paints the dotted paper, and an opaque fill would hide it */}
+      <div className="min-h-screen">
+        <SketchDefs />
         <MetaBar />
         <Hero />
         <DashboardShowcase />

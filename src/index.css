@@ -1,23 +1,40 @@
 @import "tailwindcss";
 
+/* Palette + fonts shared with parthanand.in — see D:\Dev\portfolio\src\index.css.
+   Light-only by choice: the other three case studies are light-only too. */
 @theme {
-  --color-paper: #f6f4ee;
+  --color-paper: #fbfaf4;
+  --color-paper-2: #f5f3e8;
   --color-surface: #ffffff;
-  --color-ink: #1c1a16;
-  --color-ink-soft: #4a453c;
-  --color-muted: #6b6558;
-  --color-line: #e4dfd1;
-  --color-accent: #a34c0e;
-  --color-accent-soft: #f2e4d8;
+  --color-ink: #222019;
+  --color-ink-soft: #403c32;
+  --color-muted: #74705f;
+  --color-line: #d8d3c3;
+  --color-accent: #5b3df5;
+  --color-accent-soft: #ece8ff;
+  --color-hl: #ffe89b;
 
   --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
   --font-body: 'Poppins', system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-mono: 'Spline Sans Mono', ui-monospace, monospace;
   --font-hand: 'Caveat', cursive;
 }
 
 :root {
   color-scheme: light;
+
+  /* excalidraw stroke set — d-* draws, f-* fills (via the hatch patterns) */
+  --d-blue: #1971c2;   --f-blue: #a5d8ff;
+  --d-green: #2f9e44;  --f-green: #b2f2bb;
+  --d-red: #e03131;    --f-red: #ffc9c9;
+  --d-orange: #e8590c; --f-orange: #ffd8a8;
+  --d-violet: #6741d9; --f-violet: #d0bfff;
+  --d-yellow: #f08c00; --f-yellow: #ffec99;
+  --d-stone: #74705f;  --f-stone: #dfdcd2;
+
+  /* the classic hand-drawn rectangle */
+  --r-sketch: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --r-sketch-2: 15px 225px 15px 255px / 255px 15px 225px 15px;
 }
 
 * {
@@ -61,7 +78,80 @@ body {
 
 .sticker {
   border: 1.6px solid var(--color-ink);
-  box-shadow: 2px 2px 0 rgba(28, 26, 22, 0.9);
+  box-shadow: 2px 2px 0 rgba(34, 32, 25, 0.9);
+}
+
+/* ---------- excalidraw primitives ----------
+   The taped, hard-shadowed frame every figure sits in, matching the
+   HMLC / Okto / Job Hai case studies. */
+.sketch-frame {
+  position: relative;
+  background: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  border-radius: 14px;
+  box-shadow: 6px 6px 0 rgba(34, 32, 25, 0.92);
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+.sketch-frame--tape::before {
+  content: '';
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+  width: 118px;
+  height: 26px;
+  background: rgba(255, 232, 155, 0.72);
+  border: 1px dashed rgba(34, 32, 25, 0.25);
+  border-radius: 2px;
+  pointer-events: none;
+}
+a.sketch-frame:hover,
+button.sketch-frame:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 7px 7px 0 rgba(34, 32, 25, 0.92);
+}
+
+/* hand-drawn pill: the wobbly-rectangle radius, used for chips + buttons */
+.sketch-pill {
+  border: 2px solid var(--color-ink);
+  border-radius: 14px 4px 16px 5px / 5px 16px 4px 14px;
+  box-shadow: 3px 4px 0 var(--color-ink);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.sketch-pill:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 5px 0 var(--color-ink);
+}
+.sketch-pill:active {
+  transform: translate(3px, 4px);
+  box-shadow: 0 0 0 var(--color-ink);
+}
+
+/* a marker-drawn card — softer than a frame, still clearly hand-made */
+.sketch-card {
+  background: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  border-radius: var(--r-sketch);
+  box-shadow: 4px 4px 0 rgba(34, 32, 25, 0.9);
+}
+.sketch-card--alt {
+  border-radius: var(--r-sketch-2);
+}
+
+/* handwritten annotation, the red/green marker voice from the other studies */
+.annot {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.15;
+}
+.annot--bad { color: var(--d-red); }
+.annot--good { color: var(--d-green); }
+
+/* highlighter swipe behind a phrase */
+.hl {
+  background: linear-gradient(180deg, transparent 58%, var(--color-hl) 58%);
+  padding: 0 2px;
 }
 
 ::selection {

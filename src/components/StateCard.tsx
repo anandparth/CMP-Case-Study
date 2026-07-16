@@ -73,13 +73,10 @@ export default function StateCard({ triggerRef }: { triggerRef: RefObject<HTMLEl
   const Icon = s.Icon
 
   return (
-    <div
-      ref={scope}
-      className="w-full max-w-sm select-none rounded-2xl border border-line bg-surface p-6 shadow-[0_24px_60px_-24px_rgba(28,26,22,0.18)]"
-    >
+    <div ref={scope} className="sketch-frame w-full max-w-sm select-none p-6">
       <div className="mb-4 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-soft font-mono-tag text-xs text-accent">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-ink bg-accent-soft font-mono-tag text-xs text-accent">
             AP
           </div>
           <div>
@@ -87,16 +84,25 @@ export default function StateCard({ triggerRef }: { triggerRef: RefObject<HTMLEl
             <p className="font-mono-tag text-[11px] text-muted">Sector 25, Noida</p>
           </div>
         </div>
-        <span className="font-mono-tag inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-2.5 py-1 text-[10px] font-medium text-accent">
+        <span className="font-mono-tag inline-flex items-center gap-1.5 rounded-full border-[1.6px] border-ink bg-accent-soft px-2.5 py-1 text-[10px] font-medium text-accent">
           <Icon size={12} weight="bold" />
           {s.label}
         </span>
       </div>
 
-      <div className="mb-4 h-px w-full bg-line" />
+      <svg className="mb-4 block h-[5px] w-full" viewBox="0 0 300 5" preserveAspectRatio="none" aria-hidden="true">
+        <path
+          d="M0 2.5 q12 -2 24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0 t24 0"
+          fill="none"
+          stroke="var(--color-line)"
+          strokeWidth="2"
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
 
       <p className="font-mono-tag mb-3 text-[11px] text-muted">{s.sub}</p>
-      <div className="rounded-lg border border-accent/25 bg-accent-soft/60 px-3 py-2.5 font-mono-tag text-[13px] text-accent">
+      <div className="sketch-pill bg-accent-soft px-3 py-2.5 font-mono-tag text-[13px] text-accent">
         {s.badge}
       </div>
 

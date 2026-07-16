@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import ContainerScroll from './ContainerScroll'
 import Lightbox from './Lightbox'
+import Eyebrow from './Eyebrow'
 
 const ALT =
   'The shipped CMP dashboard: candidate list with New, Viewed, Hired, and Removed tabs, filters sidebar, match score badges, and Bulk actions in the header'
@@ -9,13 +10,11 @@ export default function DashboardShowcase() {
   const [open, setOpen] = useState(false)
 
   return (
-    <section className="border-b border-line bg-paper">
+    <section className="border-b border-line">
       <ContainerScroll
         title={
           <>
-            <span className="font-mono-tag inline-flex items-center rounded-full border border-line bg-surface px-3 py-1 text-[11px] uppercase tracking-widest text-muted">
-              What shipped
-            </span>
+            <Eyebrow>What shipped</Eyebrow>
             <h2 className="mt-5 text-[26px] leading-tight font-semibold sm:text-[32px]">
               This is the list, in production
             </h2>

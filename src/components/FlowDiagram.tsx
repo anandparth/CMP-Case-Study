@@ -28,22 +28,26 @@ export default function FlowDiagram() {
   const [active, setActive] = useState(0)
 
   return (
-    <div className="rounded-2xl border border-line bg-surface p-6 sm:p-10">
+    <div className="sketch-frame sketch-frame--tape p-6 sm:p-10">
       <div className="relative">
+        {/* hand-drawn spine linking the stages. Not wrapped in #rough: a lone
+            straight-ish path in a filtered group can collapse its bbox. */}
         <svg
-          className="pointer-events-none absolute left-0 top-[27px] hidden w-full sm:block"
-          height="6"
+          className="pointer-events-none absolute left-0 top-[26px] hidden w-full sm:block"
+          height="8"
           preserveAspectRatio="none"
-          viewBox="0 0 100 6"
+          viewBox="0 0 100 8"
+          aria-hidden="true"
         >
           <path
-            d="M0,3 Q 12,0 25,3 T 50,3 T 75,3 T 100,3"
+            d="M0,4 Q 6,1.5 12,4 T 25,4 T 37,4 T 50,4 T 62,4 T 75,4 T 88,4 T 100,4"
             fill="none"
-            stroke="var(--color-line)"
-            strokeWidth="1.6"
-            strokeDasharray="1 6"
+            stroke="var(--color-ink)"
+            strokeWidth="1.8"
+            strokeDasharray="3 7"
             strokeLinecap="round"
             vectorEffect="non-scaling-stroke"
+            opacity="0.45"
           />
         </svg>
         <div className="relative grid grid-cols-1 gap-3 sm:grid-cols-5 sm:gap-4">
@@ -53,10 +57,10 @@ export default function FlowDiagram() {
               type="button"
               onClick={() => setActive(i)}
               aria-pressed={active === i}
-              className={`min-h-11 rounded-full border px-4 py-2.5 text-left text-[13px] font-medium transition-colors sm:text-center ${
+              className={`sketch-pill min-h-11 px-4 py-2.5 text-left text-[13px] font-medium sm:text-center ${
                 active === i
-                  ? 'border-accent bg-accent-soft text-accent'
-                  : 'border-line bg-paper text-ink-soft hover:border-accent/40'
+                  ? 'bg-accent text-white'
+                  : 'bg-paper text-ink-soft hover:bg-accent-soft'
               }`}
             >
               {n.label}

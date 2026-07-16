@@ -11,8 +11,8 @@ export default function Outcomes() {
       />
       <div className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-[1fr_1fr_1.2fr]">
         <Reveal>
-          <div className="h-full border-t border-line pt-5">
-            <span className="font-mono-tag text-[11px] uppercase tracking-widest text-muted">
+          <div className="sketch-card h-full p-6">
+            <span className="font-mono-tag text-[11px] uppercase tracking-widest text-[var(--d-green)]">
               Shipped
             </span>
             <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
@@ -22,8 +22,8 @@ export default function Outcomes() {
           </div>
         </Reveal>
         <Reveal delay={0.06}>
-          <div className="h-full border-t border-line pt-5">
-            <span className="font-mono-tag text-[11px] uppercase tracking-widest text-muted">
+          <div className="sketch-card sketch-card--alt h-full p-6">
+            <span className="font-mono-tag text-[11px] uppercase tracking-widest text-[var(--d-blue)]">
               Structural
             </span>
             <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
@@ -32,8 +32,10 @@ export default function Outcomes() {
             </p>
           </div>
         </Reveal>
+        {/* This card stays crisp on purpose: it's the one section whose whole
+            point is rigour, so it reads as a pinned-up measurement, not a sketch. */}
         <Reveal delay={0.12}>
-          <div className="h-full rounded-xl border border-accent/25 bg-accent-soft p-6">
+          <div className="sketch-frame sketch-frame--tape h-full bg-accent-soft p-6">
             <span className="font-mono-tag text-[11px] uppercase tracking-widest text-accent">
               Measured post-launch
             </span>

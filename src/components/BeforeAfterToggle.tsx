@@ -32,7 +32,7 @@ export default function BeforeAfterToggle() {
       <div
         role="tablist"
         aria-label="Compare the shipped list against an earlier exploration"
-        className="mx-auto flex w-fit gap-1 rounded-full border border-line bg-paper p-1"
+        className="mx-auto flex w-fit gap-2"
       >
         {VIEWS.map((v, i) => (
           <button
@@ -40,8 +40,8 @@ export default function BeforeAfterToggle() {
             role="tab"
             aria-selected={view === i}
             onClick={() => setView(i)}
-            className={`min-h-11 rounded-full px-4 text-[13px] font-medium transition-colors ${
-              view === i ? 'bg-ink text-paper' : 'text-ink-soft hover:text-ink'
+            className={`sketch-pill min-h-11 px-4 text-[13px] font-medium ${
+              view === i ? 'bg-ink text-paper' : 'bg-surface text-ink-soft hover:bg-accent-soft'
             }`}
           >
             {v.label}

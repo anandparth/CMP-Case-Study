@@ -32,13 +32,18 @@ export default function ProblemGrid() {
             than the product needed them to, on the one screen they live in all day.
           </p>
         </Reveal>
-        <div className="divide-y divide-line border-t border-line">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           {PROBLEMS.map((p, i) => (
             <Reveal key={p.tag} delay={i * 0.06}>
-              <div className="grid grid-cols-1 gap-2 py-6 sm:grid-cols-[180px_1fr] sm:gap-6">
-                <span className="font-mono-tag text-[12px] uppercase tracking-widest text-accent">
-                  {p.tag}
-                </span>
+              <div className={`sketch-card h-full p-6 ${i % 2 ? 'sketch-card--alt' : ''}`}>
+                <div className="mb-3 flex items-baseline gap-2.5">
+                  <span className="font-hand text-[26px] leading-none text-[var(--d-red)]">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="font-mono-tag text-[12px] uppercase tracking-widest text-accent">
+                    {p.tag}
+                  </span>
+                </div>
                 <p className="text-[15px] leading-relaxed text-ink-soft">{p.body}</p>
               </div>
             </Reveal>
