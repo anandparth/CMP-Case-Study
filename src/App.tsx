@@ -7,6 +7,7 @@ import ProblemGrid from './components/ProblemGrid'
 import ResearchLog from './components/ResearchLog'
 import DesignDecisions from './components/DesignDecisions'
 import Outcomes from './components/Outcomes'
+import FinalDesigns from './components/FinalDesigns'
 import Reflection from './components/Reflection'
 import Footer from './components/Footer'
 
@@ -22,6 +23,7 @@ function App() {
         <ResearchLog />
         <DesignDecisions />
         <Outcomes />
+        <FinalDesigns />
         <Reflection />
         <Footer />
       </div>
