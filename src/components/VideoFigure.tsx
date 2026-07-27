@@ -28,6 +28,8 @@ export default function VideoFigure({
           src={src}
           poster={poster}
           controls
+          controlsList="nodownload"
+          onContextMenu={(e) => e.preventDefault()}
           playsInline
           preload="metadata"
           aria-label={ariaLabel}
