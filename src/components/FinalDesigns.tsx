@@ -1,5 +1,6 @@
 import ScreenFigure from './ScreenFigure'
 import SectionHeading from './SectionHeading'
+import VideoFigure from './VideoFigure'
 
 const shots = [
   {
@@ -45,6 +46,13 @@ export default function FinalDesigns() {
               delay={(i % 2) * 0.08}
             />
           ))}
+          <VideoFigure
+            className="sm:col-span-2"
+            src="./media/cmp-bulk-actions.mp4"
+            poster="./media/cmp-video-poster.jpg"
+            ariaLabel="A 43-second motion tour of the desktop CMP: the page explodes into its building blocks, then the camera walks the New, Viewed, Hired and Removed pipeline tabs, the Bulk actions dropdown, and the card-to-table view toggle."
+            caption="The desktop CMP in motion — the pipeline tabs, Bulk actions and the card/table toggle, toured in 43 seconds. Sound on."
+          />
         </div>
       </div>
     </section>
